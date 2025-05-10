@@ -77,9 +77,9 @@ export default function Navbar() {
                     <span className="sr-only">Open menu</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent side={"top"} className="p-4">
+                <SheetContent side={"top"} className="p-2">
                     <SheetTitle className="sr-only">Menu</SheetTitle>
-                    <div className="w-full flex flex-row items-center justify-between py-4">
+                    <div className="w-full border-b flex flex-row items-center justify-between py-4">
                         <Link href="/" className="flex items-center ml-4">
                             {/* <img src="/logo.png" alt="Logo" className="h-8 w-8" /> */}
                             <span className="text-lg">MinneMap</span>
@@ -94,7 +94,7 @@ export default function Navbar() {
                             </SheetClose>
                         </div>
                     </div>
-                    <Accordion type="single" collapsible className="w-full border-b">
+                    <Accordion type="single" collapsible className="w-full">
                             <AccordionItem value="features" className="px-4">
                                 <AccordionTrigger className="w-full font-normal text-sm">
                                     Features

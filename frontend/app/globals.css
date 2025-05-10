@@ -120,7 +120,7 @@
     @apply bg-background text-foreground flex flex-col items-center;
   }
   main {
-    @apply font-sans antialiased max-w-[1440px] w-full px-4;
+    @apply font-sans antialiased;
   }
   header {
     @apply flex flex-row justify-between items-center py-4 top-0 sticky z-10;
