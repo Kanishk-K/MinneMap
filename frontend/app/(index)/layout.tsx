@@ -6,9 +6,11 @@ export default function IndexLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="max-w-[1440px] w-full px-4">
-      <Navbar />
-      {children}
-    </main>
+    <div className="flex flex-col items-center">
+      <main className="max-w-[1440px] w-full px-4">
+        <Navbar />
+        {children}
+      </main>
+    </div>
   );
 }

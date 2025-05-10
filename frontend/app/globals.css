@@ -117,7 +117,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground flex flex-col items-center;
+    @apply bg-background text-foreground;
   }
   main {
     @apply font-sans antialiased;

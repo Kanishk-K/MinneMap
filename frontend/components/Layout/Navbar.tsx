@@ -66,7 +66,7 @@ export default function Navbar() {
             </div>
             {/* Login */}
             <div className="flex-row gap-2 hidden md:flex">
-                <Button variant={"outline"}><Link href="/login">Log In</Link></Button>
+                <Button variant={"outline"}><Link href="/dashboard">Log In</Link></Button>
             </div>
 
             {/* Mobile Navigation */}
@@ -77,7 +77,7 @@ export default function Navbar() {
                     <span className="sr-only">Open menu</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent side={"top"} className="p-2">
+                <SheetContent side={"top"} className="p-2 [&>button:first-of-type]:hidden">
                     <SheetTitle className="sr-only">Menu</SheetTitle>
                     <div className="w-full border-b flex flex-row items-center justify-between py-4">
                         <Link href="/" className="flex items-center ml-4">
@@ -85,7 +85,7 @@ export default function Navbar() {
                             <span className="text-lg">MinneMap</span>
                         </Link>
                         <div className="flex flex-row gap-2">
-                            <Button variant={"outline"}><Link href="/login">Log In</Link></Button>
+                            <Button variant={"outline"}><Link href="/dashboard">Log In</Link></Button>
                             <SheetClose asChild>
                                 <Button variant={"ghost"} size={"icon"}>
                                     <XIcon className="h-5 w-5" />
