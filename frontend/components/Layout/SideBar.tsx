@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar";
 import { Bell, Home, Moon, Sun, User } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "../ui/button";
 
 export default function AppSidebar() {
   const {systemTheme, theme, setTheme} = useTheme()
