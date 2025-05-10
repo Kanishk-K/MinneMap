@@ -3,10 +3,11 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { JSX, useState } from "react";
 import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
-import { Aperture, ArrowBigUp, ArrowDown01, Menu, XIcon } from "lucide-react";
+import { Aperture, ArrowBigUp, ArrowDown01, Menu, Moon, Sun, XIcon } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import React from "react";
+import { useTheme } from "next-themes";
 
 const features: { title: string; description: string; href: string; icon: JSX.Element }[] = [
     {
@@ -31,6 +32,8 @@ const features: { title: string; description: string; href: string; icon: JSX.El
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
+    const {systemTheme, theme, setTheme} = useTheme()
+    const currentTheme = theme === "system" ? systemTheme : theme
     return (
         <header>
             <div className="flex flex-row items-center gap-4">
@@ -66,12 +69,16 @@ export default function Navbar() {
             </div>
             {/* Login */}
             <div className="flex-row gap-2 hidden md:flex">
+                <Button variant="ghost" size="icon" className="cursor-pointer" onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}>
+                    <Sun className="h-5 w-5 block dark:hidden" />
+                    <Moon className="h-5 w-5 hidden dark:block" />
+                </Button>
                 <Button variant={"outline"}><Link href="/dashboard">Log In</Link></Button>
             </div>
 
             {/* Mobile Navigation */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                <SheetTrigger asChild className="md:hidden">
+                <SheetTrigger asChild className="md:hidden cursor-pointer">
                     <Button variant={"ghost"} size={"icon"} className={"md:hidden"}>
                     <Menu className="h-5 w-5" />
                     <span className="sr-only">Open menu</span>
@@ -84,17 +91,20 @@ export default function Navbar() {
                             {/* <img src="/logo.png" alt="Logo" className="h-8 w-8" /> */}
                             <span className="text-lg">MinneMap</span>
                         </Link>
-                        <div className="flex flex-row gap-2">
-                            <Button variant={"outline"}><Link href="/dashboard">Log In</Link></Button>
+                        <div className="flex flex-row gap-2 mr-2">
+                            <Button variant="ghost" size="icon" className="cursor-pointer" onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}>
+                                <Sun className="h-5 w-5 block dark:hidden" />
+                                <Moon className="h-5 w-5 hidden dark:block" />
+                            </Button>
                             <SheetClose asChild>
-                                <Button variant={"ghost"} size={"icon"}>
+                                <Button variant={"ghost"} size={"icon"} className="cursor-pointer">
                                     <XIcon className="h-5 w-5" />
                                     <span className="sr-only">Close menu</span>
                                 </Button>
                             </SheetClose>
                         </div>
                     </div>
-                    <Accordion type="single" collapsible className="w-full">
+                    <Accordion type="single" collapsible className="w-full border-b">
                             <AccordionItem value="features" className="px-4">
                                 <AccordionTrigger className="w-full font-normal text-sm">
                                     Features
@@ -115,6 +125,7 @@ export default function Navbar() {
                                 </AccordionContent>
                             </AccordionItem>
                     </Accordion>
+                    <Link href="/dashboard"><Button variant={"outline"} className="w-full cursor-pointer">Log In</Button></Link>
                 </SheetContent>
             </Sheet>
         </header>

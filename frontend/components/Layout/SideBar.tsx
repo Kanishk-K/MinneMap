@@ -1,8 +1,13 @@
+"use client"
 import Link from "next/link";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar";
-import { Bell, Home, User } from "lucide-react";
+import { Bell, Home, Moon, Sun, User } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "../ui/button";
 
 export default function AppSidebar() {
+  const {systemTheme, theme, setTheme} = useTheme()
+  const currentTheme = theme === "system" ? systemTheme : theme
   return (
     <Sidebar variant={"sidebar"} collapsible={"icon"}>
         <SidebarHeader className="mt-1.5">
@@ -13,6 +18,15 @@ export default function AppSidebar() {
                             <Home className="h-4 w-4" />
                             <span className="ml-2">Profile</span>
                         </Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                        <button onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")} className="cursor-pointer">
+                            <Sun className="h-4 w-4 block dark:hidden" />
+                            <Moon className="h-4 w-4 hidden dark:block" />
+                            <span className="ml-2">Toggle Light/Dark Mode</span>
+                        </button>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarMenu>
