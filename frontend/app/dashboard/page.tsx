@@ -1,6 +1,6 @@
 import AnalyticDisplay from "@/components/Charts/AnalyticDisplay";
 import OverallPerformance from "@/components/Charts/OverallPerformance";
-import CampaignTable, { Payment } from "@/components/Charts/Tables/CampaignTable";
+import CampaignTable, { Campaign } from "@/components/Charts/Tables/Campaign/CampaignColumns";
 
 export default function Home(){
     return (
@@ -13,23 +13,43 @@ export default function Home(){
             <AnalyticDisplay description={"Campaigns Last 30 Days"} value={123456789} delta={5} deltaTooltip={"Compared to the last 30 days"} />
 
             <OverallPerformance />
-            <CampaignTable data={payments} />
+            <CampaignTable data={campaigns} />
         </div>
     )
 }
 
-export const payments: Payment[] = [
-  {
-    id: "728ed52f",
-    amount: 100,
-    status: "pending",
-    email: "m@example.com",
-  },
-  {
-    id: "489e1d42",
-    amount: 125,
-    status: "processing",
-    email: "example@gmail.com",
-  },
+export const campaigns: Campaign[] = [
+    {
+        id: "728ed52f",
+        date: "2023-10-01",
+        name: "Campaign 1",
+        views: 1000,
+    },
+    {
+        id: "728dasd2",
+        date: "2023-10-02",
+        name: "Campaign 2",
+        views: 2000,
+    },
+    {
+        id: "728ed52f",
+        date: "2023-10-03",
+        name: "This is an edge case of a very long name that keeps going and going and going and going",
+        views: 3000,
+    },
+    {
+        id: "728ed52f",
+        date: "2023-10-01",
+        name: "Campaign 1",
+        views: 1000,
+    },
+    {
+        id: "728dasd2",
+        date: "2023-10-02",
+        name: "Campaign 2",
+        views: 2000,
+    },
   // ...
-]
+].sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime()
+})
