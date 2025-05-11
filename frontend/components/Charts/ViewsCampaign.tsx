@@ -58,9 +58,9 @@ export default function ViewsCampaign() {
     const [timeRange, setTimeRange] = React.useState("1w")
 
   return (
-    <Card className="col-span-2 sm:col-span-3 lg:col-span-4 row-span-2">
-        <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row flex-col">
-            <div className="grid flex-1 gap-1 text-center sm:text-left">
+    <Card className="col-span-2 sm:col-span-4 md:col-span-2 lg:col-span-4 row-span-2">
+        <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 flex-col lg:flex-row md:flex-col sm:flex-row">
+            <div className="grid flex-1 gap-1 text-center lg:text-left md:text-center sm:text-left">
                 <CardTitle>Views by Campaign</CardTitle>
                 <CardDescription>
                     Showing views by campaign over the past {timeRange === "1w" ? "week" : timeRange === "1m" ? "month" : timeRange === "6m" ? "6 months" : "year"}
@@ -68,7 +68,7 @@ export default function ViewsCampaign() {
             </div>
             <Select value={timeRange} onValueChange={setTimeRange}>
                 <SelectTrigger
-                    className="w-[160px] rounded-lg sm:ml-auto"
+                    className="w-max-[160px] rounded-lg sm:mx-auto lg:ml-0 md:mx-auto"
                     aria-label="Select a value"
                 >
                     <SelectValue placeholder="Last Week" />

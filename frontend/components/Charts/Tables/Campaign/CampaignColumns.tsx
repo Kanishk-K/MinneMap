@@ -86,6 +86,6 @@ export const columns: ColumnDef<Campaign>[] = [
 
 export default function CampaignTable({ data }: { data: Campaign[] }) {
     return (
-        <DataTable columns={columns} data={data} className="col-span-2 sm:col-span-4 md:col-span-6 lg:col-span-4 row-span-3" />
+        <DataTable columns={columns} data={data} className="col-span-2 sm:col-span-4 md:col-span-4 lg:col-span-4 row-span-2" />
     )
 }
