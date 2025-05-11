@@ -40,7 +40,7 @@ export default function OverallPerformance(){
         return date >= pastDate
     })
     return (
-        <Card className="col-span-2 sm:col-span-4 md:col-span-6">
+        <Card className="col-span-2 sm:col-span-4 md:col-span-6 lg:col-span-4 row-span-3">
             <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row flex-col">
                 <div className="grid flex-1 gap-1 text-center sm:text-left">
                     <CardTitle>Area Chart - Interactive</CardTitle>

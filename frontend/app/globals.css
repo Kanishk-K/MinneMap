@@ -145,6 +145,6 @@
     @apply flex flex-row justify-between items-center py-4 top-0 sticky z-10;
   }
   #dashboardHolder {
-    @apply grid px-1 gap-4 xl:grid-cols-12 lg:grid-cols-8 md:grid-cols-6 sm:grid-cols-4 grid-cols-2;
+    @apply grid grid-flow-row-dense auto-rows-max px-1 gap-4 xl:grid-cols-12 lg:grid-cols-8 md:grid-cols-6 sm:grid-cols-4 grid-cols-2;
   }
 }
