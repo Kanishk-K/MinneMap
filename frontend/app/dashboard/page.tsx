@@ -1,5 +1,5 @@
 import AnalyticDisplay from "@/components/Charts/AnalyticDisplay";
-import OverallPerformance from "@/components/Charts/OverallPerformance";
+import ViewViewersOverTime from "@/components/Charts/ViewViewersOverTime";
 import CampaignTable, { Campaign } from "@/components/Charts/Tables/Campaign/CampaignColumns";
 
 export default function Home(){
@@ -12,13 +12,13 @@ export default function Home(){
             <AnalyticDisplay description={"Views Last 30 Days"} value={123456789} delta={-5} deltaTooltip={"Compared to the last 30 days"}/>
             <AnalyticDisplay description={"Campaigns Last 30 Days"} value={123456789} delta={5} deltaTooltip={"Compared to the last 30 days"} />
 
-            <OverallPerformance />
+            <ViewViewersOverTime />
             <CampaignTable data={campaigns} />
         </div>
     )
 }
 
-export const campaigns: Campaign[] = [
+const campaigns: Campaign[] = [
     {
         id: "728ed52f",
         date: "2023-10-01",
