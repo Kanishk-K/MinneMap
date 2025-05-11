@@ -13,19 +13,19 @@ export default function AppSidebar() {
             <SidebarMenu>
                 <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                        <Link href="/dashboard">
-                            <Home className="h-4 w-4" />
-                            <span className="ml-2">Profile</span>
-                        </Link>
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
                         <button onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")} className="cursor-pointer">
                             <Sun className="h-4 w-4 block dark:hidden" />
                             <Moon className="h-4 w-4 hidden dark:block" />
                             <span className="ml-2">Toggle Light/Dark Mode</span>
                         </button>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                        <Link href="/dashboard">
+                            <Home className="h-4 w-4" />
+                            <span className="ml-2">Overview</span>
+                        </Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarMenu>
@@ -41,7 +41,7 @@ export default function AppSidebar() {
                         <Link href="/dashboard/notifications">
                             <div className="relative">
                                 <Bell className="h-4 w-4" />
-                                <div className="absolute -top-0.5 right-0 w-2 h-2 bg-primary rounded-full"></div>
+                                <div className="absolute -top-0.5 right-0 w-2 h-2 bg-red-800 dark:bg-red-400 rounded-full"></div>
                             </div>
                             <span className="ml-2">Notifications</span>
                         </Link>
