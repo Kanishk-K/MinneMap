@@ -71,7 +71,7 @@ export default function ImageEditor() {
     function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
         const selectedFile = event.target.files?.[0]
         if (selectedFile && 
-            selectedFile.size <= 5 * 1024 * 1024 && 
+            selectedFile.size <= 2 * 1024 * 1024 && 
             (selectedFile.type === "image/png" || selectedFile.type === "image/jpeg")) {
             setFile(selectedFile)
             setProgress(1)
@@ -96,7 +96,7 @@ export default function ImageEditor() {
                                 Click to upload
                             </p>
                             <p className="mt-2 text-sm text-muted-foreground">
-                                PNG or JPG (MAX 800 x 400px and 5MB)
+                                PNG or JPG (MAX 800 x 400px and 2MB)
                             </p>
                         </label>
                         <Input id="fileupload" type="file" className="hidden" onChange={handleFileChange} />
@@ -104,7 +104,7 @@ export default function ImageEditor() {
                 </form>}
                 {/* Step 2 */}
                 {progress == 1 && (<div className="flex flex-col p-8 items-center justify-center w-full min-h-64 border-2 border-muted-foreground border-dashed rounded-lg bg-background">
-                    <ReactCrop crop={crop} onChange={(c) => setCrop(c)} aspect={1}>
+                    <ReactCrop crop={crop} onChange={(c) => setCrop(c)} aspect={1} minHeight={100} minWidth={100}>
                         <img src={URL.createObjectURL(file!)} alt="Preview" className="rounded-lg" />
                     </ReactCrop>
                 </div>)}

@@ -1,7 +1,7 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
-import { DataTable } from "./CampaignTable"
+import { DataTable } from "@/components/Charts/Tables/Campaign/CampaignTable"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut } from "@/components/ui/dropdown-menu"
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
 import { Eye, Map, MoreHorizontal, Trash2, UserRoundPlus } from "lucide-react"
