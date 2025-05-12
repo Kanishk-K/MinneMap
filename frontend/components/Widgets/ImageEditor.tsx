@@ -104,7 +104,7 @@ export default function ImageEditor() {
                 </form>}
                 {/* Step 2 */}
                 {progress == 1 && (<div className="flex flex-col p-8 items-center justify-center w-full min-h-64 border-2 border-muted-foreground border-dashed rounded-lg bg-background">
-                    <ReactCrop crop={crop} onChange={(c) => setCrop(c)} aspect={1} minHeight={100} minWidth={100}>
+                    <ReactCrop crop={crop} onChange={(c, pc) => setCrop(pc)} aspect={1}>
                         <img src={URL.createObjectURL(file!)} alt="Preview" className="rounded-lg" />
                     </ReactCrop>
                 </div>)}
